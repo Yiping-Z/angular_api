@@ -1,0 +1,64 @@
+<button class="btn btn-dark" data-toggle="modal" data-target="#userModal" id="openModalButton" [hidden]="true">Add User</button>
+
+<div class="modal" id="userModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ editMode ? 'Edit' : 'Add'}} User</h5>
+        <button class="close" data-dismiss="modal" (click)="onCancel()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Contact</label>
+            <input
+              type="number"
+              id="contact"
+              formControlName="contact"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-control"
+              ngModel email
+            />
+          </div>
+      <div class="modal-footer">
+        <button
+        type="submit"
+        id="submit"
+        class="btn btn-success"
+        [disabled]="!userForm.valid"
+      >
+        Save
+      </button>
+      <button type="button" class="btn btn-danger" (click)="onCancel()" data-dismiss="modal" #close>
+        Cancel
+      </button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:500px;"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+crossorigin="anonymous"></script>

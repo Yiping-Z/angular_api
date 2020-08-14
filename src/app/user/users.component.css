@@ -1,0 +1,8 @@
+* {
+    font-size: 14px;
+    font-family: system-ui;
+}
+
+.monospace {
+    font-family: "Lucida Console", Courier, monospace;
+}
